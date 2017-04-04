@@ -4,10 +4,12 @@ import { Component, Input } from '@angular/core';
   selector: 'my-app',
   template: `
       <material-datepicker
-        [(date)]="date"
-        (onSelect)="onSelect($event)"
-        dateFormat="YYYY-MM-DD"
-        [rangeEnd]="testRangeDate"
+        [date]="date"
+        (onDateChange)="onSelect($event)"
+        ddateFormat="YYYY-MM-DD"
+        [maxDate]="testRangeDate"
+        [showMonths]="1"
+        [isRange]="false"
       ></material-datepicker>
 
       <button (click)="setToday()">today</button>
@@ -15,18 +17,10 @@ import { Component, Input } from '@angular/core';
       <hr>
       {{ date }}
       <p>
-      Mirror(disabled, DD-MM-YYYY):
-      <material-datepicker
-        placeholder="nothing is selected"
-        disabled="true"
-        [(date)]="date"
-        [dateFormat]="formatDate"
-      ></material-datepicker>
-
     `
 })
 export class AppComponent {
-  date: Date;
+  date: Array<Date>;
   disabled: boolean;
   @Input() testRangeDate: Date;
 
@@ -38,13 +32,13 @@ export class AppComponent {
     return date.toLocaleString();
   }
 
-  onSelect(date: Date) {
-    console.log("onSelect: ", date);
+  onSelect(date: Array<Date>) {
+    this.date = date;
   }
   clearDate() {
-    this.date = null;
+    this.date = [null];
   }
   setToday() {
-    this.date = new Date();
+    this.date = [new Date()];
   }
 }

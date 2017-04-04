@@ -11,3 +11,5 @@ npm-debug.log
 src/**/*.js
 .idea
 *.iml
+
+.vscode

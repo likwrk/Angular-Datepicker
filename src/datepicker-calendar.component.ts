@@ -5,7 +5,6 @@ import {
 } from '@angular/core';
 
 import * as moment from 'moment';
-import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'material-datepicker-calendar',

@@ -7,7 +7,6 @@ import { FormControl, Validators } from '@angular/forms';
 
 import * as moment from 'moment';
 import { CalendarUtils } from './utils/calendar-utils';
-import { Output } from '@angular/core';
 
 interface DateFormatFunction {
   (date: Date): string;
